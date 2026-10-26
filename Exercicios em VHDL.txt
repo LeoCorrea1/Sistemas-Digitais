@@ -53,15 +53,15 @@ entity Circuito_OR_AND is
         A : in STD_LOGIC;
         B : in STD_LOGIC;
         C : in STD_LOGIC;
-        Wab : out STD_LOGIC
-        WabB : out STD_LOGIC
-	Y: out STD_LOGIC
+        Wab : out STD_LOGIC;
+        WabB : out STD_LOGIC;
+        Y : out STD_LOGIC
     );
 end Circuito_OR_AND;
 
 architecture Comportamental of Circuito_OR_AND is
 begin
-    Wab <= (A OR B);
-    WabB <= (Wab AND B);
-    Y <= (WabB OR C);
+    Wab  <= A AND B;
+    WabB <= Wab OR B;
+    Y    <= WabB AND C;
 end Comportamental;
