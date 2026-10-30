@@ -1,4 +1,4 @@
-a) 
+1. a) 
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -65,3 +65,59 @@ begin
     WabB <= Wab OR B;
     Y    <= WabB AND C;
 end Comportamental;
+
+
+
+
+d ) 
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Circuito_OR_AND is
+    Port (
+        A : in STD_LOGIC;
+        B : in STD_LOGIC;
+        C : in STD_LOGIC;
+        D : in STD_LOGIC;
+        Wab : out STD_LOGIC;
+        Wbc : out STD_LOGIC;
+        WAbC : out STD_LOGIC;
+        Y : out STD_LOGIC
+    );
+end Circuito_OR_AND;
+
+architecture Comportamental of Circuito_OR_AND is
+begin
+    Wab  <= A AND B;
+    Wbc  <= B OR C;
+    WAbC <= Wab OR Wbc;
+    Y    <= WAbC AND D;
+end Comportamental;
+
+
+2. 
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Circuito_OR_AND is
+    Port (
+        A  : in STD_LOGIC;
+        B  : in STD_LOGIC;
+        Te : in STD_LOGIC;
+        Wab : out STD_LOGIC;
+        S  : out STD_LOGIC;
+        Ts : out STD_LOGIC
+    );
+end Circuito_OR_AND;
+
+architecture Comportamental of Circuito_OR_AND is
+begin
+    Wab <= A AND B;
+    S <= (A XOR B) XOR Te;
+    Ts <= (A AND B) OR (A AND Te) OR (B AND Te);
+end Comportamental;
+
+
+
